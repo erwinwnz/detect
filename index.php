@@ -81,25 +81,15 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
 }
  
 
-function getClientIPInfo($ip = null) {
-	global $_SERVER;
-		
-		if ( is_null( $ip ) ) {
-			$ip = $_SERVER['REMOTE_ADDR'];
-		}
-    $json_data = file_get_contents('http://api.ipstack.com/'.$ip.'?access_key=953be5d8b0c63084682f78dc49d9abcf&format=1');
-    $data = json_decode($json_data, true);
-    return $data;
-}
 
-$geoplugin = getClientIPInfo();
+
 $ua_info = parse_user_agent();
 $ip = getIP();
 $country = ip_info("visitor", "Country");
 $city = ip_info("visitor", "City");
-echo "Geolocation results for {$ip}: <br />\n".
-	"City: {$city} <br />\n".
-	"Country Name: {$country} <br />\n".
+
+echo "City: {$city} <br />\n".
+	"Country: {$country} <br />\n".
 	"Platform: {$ua_info['platform']} <br />\n".
 	"Browser: {$ua_info['browser']} <br />\n".
 	"Version: {$ua_info['version']} <br />\n";
