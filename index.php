@@ -18,7 +18,7 @@ $geoplugin = getClientIPInfo();
 $ua_info = parse_user_agent();
 
 echo "Geolocation results for {$_SERVER['REMOTE_ADDR']}: <br />\n".
-	"City: {$geoplugin->city} <br />\n"
+	"City: {$geoplugin->city} <br />\n".
 	"Country Name: {$geoplugin->country_name} <br />\n".
 	"Platform: {$ua_info['platform']} <br />\n".
 	"Browser: {$ua_info['browser']} <br />\n".
