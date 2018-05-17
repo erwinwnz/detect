@@ -13,7 +13,13 @@ function getClientIPInfo($ip = null) {
     return $data;
 }
 
-
+$query = @unserialize (file_get_contents('http://ip-api.com/php/'));
+if ($query && $query['status'] == 'success') {
+echo 'Hey user from ' . $query['country'] . ', ' . $query['city'] . '!';
+}
+foreach ($query as $data) {
+    echo $data . "<br>";
+}
 $geoplugin = getClientIPInfo();
 $ua_info = parse_user_agent();
 
