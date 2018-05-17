@@ -1,5 +1,5 @@
 <?php
-
+global $_SERVER;
 require_once('./geo/geoplugin.class.php');
 require_once('./PhpUserAgent-master/Source/UserAgentParser.php');
 
