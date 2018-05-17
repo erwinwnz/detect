@@ -1,11 +1,12 @@
 <?php
 
-require_once('geoplugin.class/geoplugin.class.php');
-require_once('PhpUserAgent-master/Source/UserAgentParser.php');
+require_once('./geo/geoplugin.class.php');
+require_once('./PhpUserAgent-master/Source/UserAgentParser.php');
 
 $geoplugin = new geoPlugin();
 $geoplugin->locate();
 $ua_info = parse_user_agent();
+print_r($geoplugin);
 echo "Geolocation results for {$geoplugin->ip}: <br />\n".
 	"City: {$geoplugin->city} <br />\n".
 	"Region: {$geoplugin->region} <br />\n".
