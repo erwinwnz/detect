@@ -1,9 +1,14 @@
 <?php
-global $_SERVER;
+
 require_once('./geo/geoplugin.class.php');
 require_once('./PhpUserAgent-master/Source/UserAgentParser.php');
 
-function getClientIPInfo($ip = $_SERVER['REMOTE_ADDR']) {
+function getClientIPInfo($ip = null) {
+	global $_SERVER;
+		
+		if ( is_null( $ip ) ) {
+			$ip = $_SERVER['REMOTE_ADDR'];
+		}
     $json_data = file_get_contents('http://ipinfo.io/'.$ip.'/json');
     $data = json_decode($json_data, true);
     return $data;
