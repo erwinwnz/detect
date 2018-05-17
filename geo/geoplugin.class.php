@@ -89,7 +89,6 @@ zh-CN
 		$response = $this->fetch($host);
 		
 		$data = unserialize($response);
-		print_r($data);
 		//set the geoPlugin vars
 		$this->ip = $ip;
 		$this->city = $data['geoplugin_city'];
